@@ -4,10 +4,10 @@ import { motion } from "framer-motion"
 import { Mail, Github, Linkedin, Twitter } from "lucide-react"
 
 const socials = [
-  { icon: Github, label: "GitHub", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Github, label: "GitHub", href: "https://github.com/Waseque1000" },
+  { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/waseque-arafat-5b479a268/" },
   { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:hello@example.com" },
+  { icon: Mail, label: "Email", href: "mailto:itswaseeee@gmail.com" },
 ]
 
 export default function ContactSection() {
@@ -20,14 +20,14 @@ export default function ContactSection() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 lg:mb-8 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 lg:mb-8 bg-gradient-to-r pb-10 from-foreground to-foreground/70 bg-clip-text text-transparent">
             Let&apos;s Work Together
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 lg:mb-12 text-balance leading-relaxed">
             Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something amazing together.
           </p>
           <motion.a
-            href="mailto:hello@example.com"
+            href="mailto:itswaseeee@gmail.com"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(0,0,0,0.1)" }}
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-primary text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-full font-medium text-base md:text-lg hover:bg-primary/90 transition-all shadow-lg mb-10 lg:mb-12"
