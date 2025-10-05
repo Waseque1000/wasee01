@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
+import Link from "next/link"
 
 const projects = [
   {
@@ -9,6 +10,7 @@ const projects = [
     description: "A modern e-commerce solution with seamless checkout and inventory management",
     tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
     image: "/modern-ecommerce-website.png",
+    link:'https://assignment-009-cfd88.web.app/'
   },
   {
     title: "Design System",
@@ -59,7 +61,8 @@ export default function ProjectsSection() {
               <div className="p-5 lg:p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg lg:text-xl font-semibold">{project.title}</h3>
-                  <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLink  className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  
                 </div>
                 <p className="text-sm lg:text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2">
