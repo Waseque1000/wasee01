@@ -6,24 +6,28 @@ import Link from "next/link"
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A modern e-commerce solution with seamless checkout and inventory management",
-    tags: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    image: "/modern-ecommerce-website.png",
+    title: "Lingo Bingo",
+    description: "*Lingo Bingo**, a fun and engaging platform designed to help users expand their vocabulary and improve their communication skills in Spanish! This application makes learning enjoyable and interactive, helping you overcome",
+    tags: ["Next.js", "Daisiui ", "Stripe", "Tailwind"],
+    image: "/lingo.gif",
     link:'https://assignment-009-cfd88.web.app/'
   },
   {
-    title: "Design System",
-    description: "Comprehensive component library with accessibility and customization",
+    title: "Visa",
+    description: "Visa Navigator Portal, a comprehensive and user-friendly platform designed to simplify the visa process. This application streamlines every step, allowing users to effortlessly check visa requirements, apply for visas online, and tra",
     tags: ["React", "Storybook", "CSS", "Figma"],
-    image: "/design-system-components.png",
+    image: "/visa.png",
+    link:'https://assignment-010-512d2.web.app/'
   },
   {
-    title: "Analytics Dashboard",
-    description: "Real-time data visualization with interactive charts and insights",
-    tags: ["React", "D3.js", "Node.js", "PostgreSQL"],
-    image: "/analytics-dashboard.png",
+    title: "Historical Artifacts Tracker",
+    description: "Historical Artifacts Tracker** is a web application designed to track historical artifacts, allowing users to browse, add, update, like, and manage artifacts. The application includes features like user authentication, CRUD operations",
+    tags: ["React", "Taileind CSS", "Node.js", "MOngoDB"],
+    image: "/history.png",
+    link:'https://job-portal-0001.web.app/'
   },
+    
+ 
 ]
 
 export default function ProjectsSection() {
@@ -61,7 +65,11 @@ export default function ProjectsSection() {
               <div className="p-5 lg:p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg lg:text-xl font-semibold">{project.title}</h3>
-                  <ExternalLink  className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                
+                  <Link href={project.link}>
+                  
+                    <ExternalLink  className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </Link>
                   
                 </div>
                 <p className="text-sm lg:text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
