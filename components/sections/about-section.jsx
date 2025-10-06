@@ -115,7 +115,7 @@ export default function AboutSection() {
             </motion.a>
 
             <motion.a
-              href="/resume.pdf"
+              href="cv.pdf"
               download
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
