@@ -135,7 +135,7 @@ export default function AboutSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative"
         >
-          <div className="relative mx-auto w-full pl-10 max-w-md">
+          <div className="relative mx-auto w-full   max-w-md">
             <div className="relative rounded-3xl border border-foreground/10 bg-gradient-to-b from-background/70 to-background/50 backdrop-blur p-4 shadow-2xl">
               <div className="relative aspect-[4/5] overflow-hidden  rounded-2xl">
                 {/* Replace src with your photo */}
