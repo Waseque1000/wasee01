@@ -56,7 +56,7 @@ export default function HorizontalPortfolio() {
           <HeroSection />
           <AboutSection />
           <ProjectsSection />
-          <SkillsSection />
+          {/* <SkillsSection /> */}
           <ContactSection />
         </div>
       </>
