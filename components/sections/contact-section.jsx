@@ -7,7 +7,7 @@ const socials = [
   { icon: Github, label: "GitHub", href: "https://github.com/Waseque1000" },
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/waseque-arafat-5b479a268/" },
   { icon: Twitter, label: "Twitter", href: "#" },
-  { icon: Mail, label: "Email", href: "mailto:itswaseeee@gmail.com" },
+  { icon: Mail, label: "Email", href: "mailto:waseque.ndc@gmail.com" },
 ]
 
 export default function ContactSection() {
@@ -27,7 +27,7 @@ export default function ContactSection() {
             Have a project in mind? I&apos;d love to hear about it. Let&apos;s create something amazing together.
           </p>
           <motion.a
-            href="mailto:itswaseeee@gmail.com"
+            href="mailto:waseque.ndc@gmail.com" 
             whileHover={{ scale: 1.05, boxShadow: "0 10px 40px rgba(0,0,0,0.1)" }}
             whileTap={{ scale: 0.95 }}
             className="inline-block bg-primary text-primary-foreground px-8 md:px-12 py-4 md:py-5 rounded-full font-medium text-base md:text-lg hover:bg-primary/90 transition-all shadow-lg mb-10 lg:mb-12"
