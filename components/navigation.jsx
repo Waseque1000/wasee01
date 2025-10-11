@@ -85,7 +85,7 @@ export default function Navigation() {
         </ul>
       </nav>
 
-      <nav className="fixed top-6 right-36 z-50 lg:hidden">
+      <nav className="fixed top-6 right-10 z-50 lg:hidden">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           className="bg-card/90 backdrop-blur-lg border border-border/50 rounded-full p-4 shadow-lg"
