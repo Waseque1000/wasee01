@@ -5,8 +5,8 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Wasee ',
-  description: 'Wasee',
+  title: 'Waseque Arafat  ',
+  description: 'Waseque Arafat',
   icons: {
     icon: '/favicon.ico',
   },
