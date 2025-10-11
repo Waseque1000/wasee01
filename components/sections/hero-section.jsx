@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 export default function HeroSection() {
   return (
@@ -33,7 +34,9 @@ export default function HeroSection() {
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 md:px-10 py-4 md:py-5 rounded-full font-medium hover:bg-primary/90 transition-all shadow-lg"
           >
+        
             View My Work
+       
             <ArrowRight className="w-5 h-5" />
           </motion.button>
         </motion.div>

@@ -32,7 +32,7 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section className="min-w-screen min-h-screen flex items-center px-6 md:px-12 lg:px-16 py-24 lg:py-0">
+    <section id="ok" className="min-w-screen min-h-screen flex items-center px-6 md:px-12 lg:px-16 py-24 lg:py-0">
       <div className="w-full max-w-7xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, x: 100 }}
