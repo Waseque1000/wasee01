@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const skills = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+  { category: "Frontend", items: ["React", "Next.js", "Shopify", "Tailwind CSS"] },
   { category: "Backend", items: ["Node.js", "PostgreSQL", "GraphQL", "REST APIs"] },
   { category: "Design", items: ["Figma", "Framer", "UI/UX", "Animation"] },
   { category: "Tools", items: ["Git", "Docker", "Vercel", "VS Code"] },
