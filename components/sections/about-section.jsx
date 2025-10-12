@@ -60,7 +60,7 @@ export default function AboutSection() {
                 </a>
 
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/Waseque1000"
                   target="_blank"
                   rel="noreferrer"
                   className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-background/70 backdrop-blur transition hover:border-foreground/40"
@@ -69,7 +69,7 @@ export default function AboutSection() {
                 <FaGithub />
                 </a>
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/in/waseque-arafat-5b479a268/"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-background/70 backdrop-blur transition hover:border-foreground/40"
