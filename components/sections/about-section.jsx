@@ -24,7 +24,7 @@ export default function AboutSection() {
                   Front-End Developer
                 </span>
                 <span className="rounded-full border border-foreground/15 px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground">
-                  UI/UX-minded
+                 Shopify Developer
                 </span>
               </div>
 
