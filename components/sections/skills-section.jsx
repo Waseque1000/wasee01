@@ -1,36 +1,79 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const skills = [
   { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
   { category: "Backend", items: ["Node.js", "PostgreSQL", "GraphQL", "REST APIs"] },
   { category: "Design", items: ["Figma", "Framer", "UI/UX", "Animation"] },
   { category: "Tools", items: ["Git", "Docker", "Vercel", "VS Code"] },
-]
+];
+
+function useIsDesktop(breakpoint = 768) {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(min-width: ${breakpoint}px)`);
+
+    const onChange = (e) => {
+      setIsDesktop(e.matches);
+    };
+
+    // Initial check
+    setIsDesktop(mql.matches);
+
+    // Add listener (support both modern and older browsers)
+    if (mql.addEventListener) {
+      mql.addEventListener("change", onChange);
+    } else {
+      mql.addListener(onChange);
+    }
+
+    return () => {
+      if (mql.removeEventListener) {
+        mql.removeEventListener("change", onChange);
+      } else {
+        mql.removeListener(onChange);
+      }
+    };
+  }, [breakpoint]);
+
+  return isDesktop;
+}
 
 export default function SkillsSection() {
+  const isDesktop = useIsDesktop(768);
+
+  const Title = isDesktop ? motion.h2 : "h2";
+  const Card = isDesktop ? motion.div : "div";
+
   return (
     <section className="min-w-screen min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-16 py-24 lg:py-0 bg-secondary/30">
       <div className="max-w-5xl w-full">
-        <motion.h2
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
+        <Title
+          {...(isDesktop && {
+            initial: { opacity: 0, x: 100 },
+            whileInView: { opacity: 1, x: 0 },
+            transition: { duration: 0.8, ease: "easeOut" },
+            viewport: { once: true },
+          })}
           className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 lg:mb-14 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
         >
-          Skills & Expertise
-        </motion.h2>
+          Skills &amp; Expertise
+        </Title>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {skills.map((skill, index) => (
-            <motion.div
+            <Card
               key={skill.category}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              {...(isDesktop && {
+                initial: { opacity: 0, y: 50 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { duration: 0.6, delay: index * 0.1, ease: "easeOut" },
+                viewport: { once: true },
+                whileHover: { scale: 1.02, transition: { duration: 0.3 } },
+              })}
               className="bg-card border border-border rounded-2xl p-6 lg:p-8 hover:border-primary/50 hover:shadow-xl transition-all"
             >
               <h3 className="text-xl lg:text-2xl font-semibold mb-4 lg:mb-6 text-primary">{skill.category}</h3>
@@ -42,10 +85,10 @@ export default function SkillsSection() {
                   </li>
                 ))}
               </ul>
-            </motion.div>
+            </Card>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }

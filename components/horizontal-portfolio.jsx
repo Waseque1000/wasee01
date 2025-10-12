@@ -54,9 +54,9 @@ export default function HorizontalPortfolio() {
         <Navigation />
         <div className="flex flex-col">
           <HeroSection />
-          <AboutSection />
+          {/* <AboutSection /> */}
           <ProjectsSection />
-          {/* <SkillsSection /> */}
+          <SkillsSection />
           <ContactSection />
         </div>
       </>
