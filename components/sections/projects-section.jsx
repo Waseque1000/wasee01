@@ -1,79 +1,122 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { useEffect, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image";
 
 const projects = [
   {
     title: "Lingo Bingo",
-    description: "*Lingo Bingo**, a fun and engaging platform designed to help users expand their vocabulary and improve their communication skills in Spanish! This application makes learning enjoyable and interactive, helping you overcome",
-    tags: ["Next.js", "Daisiui ", "Stripe", "Tailwind"],
+    description:
+      "Lingo Bingo is a fun, engaging platform to expand vocabulary and improve Spanish communication skills.",
+    tags: ["Next.js", "DaisyUI", "Stripe", "Tailwind"],
     image: "/lingo.gif",
-    link:'https://assignment-009-cfd88.web.app/'
+    link: "https://assignment-009-cfd88.web.app/",
   },
   {
     title: "Visa",
-    description: "Visa Navigator Portal, a comprehensive and user-friendly platform designed to simplify the visa process. This application streamlines every step, allowing users to effortlessly check visa requirements, apply for visas online, and tra",
+    description:
+      "Visa Navigator Portal simplifies the visa journey: check requirements, apply online, and track progress.",
     tags: ["React", "Storybook", "CSS", "Figma"],
     image: "/visa.png",
-    link:'https://assignment-010-512d2.web.app/'
+    link: "https://assignment-010-512d2.web.app/",
   },
   {
     title: "Historical Artifacts Tracker",
-    description: "Historical Artifacts Tracker** is a web application designed to track historical artifacts, allowing users to browse, add, update, like, and manage artifacts. The application includes features like user authentication, CRUD operations",
-    tags: ["React", "Taileind CSS", "Node.js", "MOngoDB"],
+    description:
+      "Browse, add, update, like, and manage historical artifacts with auth and full CRUD workflows.",
+    tags: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
     image: "/history.png",
-    link:'https://job-portal-0001.web.app/'
+    link: "https://job-portal-0001.web.app/",
   },
-    
- 
-]
+];
+
+function useIsDesktop() {
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const onChange = () => setIsDesktop(mq.matches);
+    onChange();
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isDesktop;
+}
+
+function motionIf(enabled, props) {
+  return enabled ? props : {};
+}
 
 export default function ProjectsSection() {
+  const isDesktop = useIsDesktop();
+  const prefersReduced = useReducedMotion();
+  const allowMotion = isDesktop && !prefersReduced;
+
   return (
-    <section id="ok" className="min-w-screen min-h-screen flex items-center px-6 md:px-12 lg:px-16 py-24 lg:py-0">
-      <div className="w-full max-w-7xl mx-auto">
+    <section
+      id="projects"
+      className="relative min-w-screen   px-6 md:px-12 lg:px-16 py-24 flex items-center justify-center"
+    >
+      {/* Background glows */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+        <div className="hidden sm:block absolute left-[-15%] top-[-10%] h-[420px] w-[420px] rounded-full bg-primary/10 blur-3xl" />
+        <div className="hidden sm:block absolute right-[-15%] bottom-[-10%] h-[420px] w-[420px] rounded-full bg-foreground/10 blur-3xl" />
+      </div>
+
+      <div className="mx-auto w-full max-w-7xl">
         <motion.h2
-          initial={{ opacity: 0, x: 100 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 lg:mb-14 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent"
+          {...motionIf(allowMotion, {
+            initial: { opacity: 0, y: 20 },
+            whileInView: { opacity: 1, y: 0 },
+            transition: { duration: 0.6, ease: "easeOut" },
+            viewport: { once: true },
+          })}
+          className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 lg:mb-14 bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent text-center"
         >
           Featured Projects
         </motion.h2>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10, transition: { duration: 0.3 } }}
-              className="group bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-2xl transition-all cursor-pointer"
+              {...motionIf(allowMotion, {
+                initial: { opacity: 0, y: 40 },
+                whileInView: { opacity: 1, y: 0 },
+                transition: { duration: 0.5, delay: index * 0.1, ease: "easeOut" },
+                viewport: { once: true },
+              })}
+              className="group flex flex-col h-full overflow-hidden rounded-2xl border border-border bg-card/70 backdrop-blur-lg transition-all hover:border-primary/40"
             >
-              <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden bg-muted">
-                <img
-                  src={project.image || "/placeholder.svg"}
+              <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+                <Image
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  fill
+                  className={`object-cover ${allowMotion ? "transition-transform duration-700 group-hover:scale-105" : ""}`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              <div className="p-5 lg:p-6">
+
+              <div className="p-6 flex flex-col flex-1">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="text-lg lg:text-xl font-semibold">{project.title}</h3>
-                
-                  <Link href={project.link}>
-                  
-                    <ExternalLink  className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <Link
+                    href={project.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.title} link`}
+                  >
+                    <ExternalLink className="w-5 h-5 text-muted-foreground hover:text-primary transition-colors" />
                   </Link>
-                  
                 </div>
-                <p className="text-sm lg:text-base text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+
+                <p className="text-sm lg:text-base text-muted-foreground mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+
+                <div className="mt-auto flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -89,5 +132,5 @@ export default function ProjectsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

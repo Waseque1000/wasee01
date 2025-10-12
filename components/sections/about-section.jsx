@@ -1,3 +1,5 @@
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 export default function AboutSection() {
   return (
     // relative min-w-[100vw] min-h-screen md:pt-20 pt-20 bg-red-500
@@ -64,7 +66,7 @@ export default function AboutSection() {
                   className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-background/70 backdrop-blur transition hover:border-foreground/40"
                   aria-label="GitHub"
                 >
-                  G
+                <FaGithub />
                 </a>
                 <a
                   href="https://www.linkedin.com/"
@@ -73,7 +75,7 @@ export default function AboutSection() {
                   className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-foreground/15 bg-background/70 backdrop-blur transition hover:border-foreground/40"
                   aria-label="LinkedIn"
                 >
-                  L
+               <FaLinkedin />
                 </a>
               </div>
             </div>
