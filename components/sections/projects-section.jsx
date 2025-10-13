@@ -8,6 +8,14 @@ import Image from "next/image";
 
 const projects = [
   {
+    title: "Rentify Tech",
+    description:
+      "Rentify Tech is a comprehensive rental management platform that streamlines gagdets rentals, tenant management, and payment processing.",
+    tags: ["Next.js", "DaisyUI", "Stripe", "Tailwind"],
+    image: "/rent.png",
+    link: "https://rentechify.web.app/",
+  },
+  {
     title: "Lingo Bingo",
     description:
       "Lingo Bingo is a fun, engaging platform to expand vocabulary and improve Spanish communication skills.",
@@ -23,14 +31,15 @@ const projects = [
     image: "/visa.png",
     link: "https://assignment-010-512d2.web.app/",
   },
-  {
-    title: "Historical Artifacts Tracker",
-    description:
-      "Browse, add, update, like, and manage historical artifacts with auth and full CRUD workflows.",
-    tags: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
-    image: "/history.png",
-    link: "https://job-portal-0001.web.app/",
-  },
+  // {
+  //   title: "Historical Artifacts Tracker",
+  //   description:
+  //     "Browse, add, update, like, and manage historical artifacts with auth and full CRUD workflows.",
+  //   tags: ["React", "Tailwind CSS", "Node.js", "MongoDB"],
+  //   image: "/history.png",
+  //   link: "https://job-portal-0001.web.app/",
+  // },
+ 
 ];
 
 function useIsDesktop() {
@@ -90,7 +99,7 @@ export default function ProjectsSection() {
               })}
               className="group flex flex-col h-full overflow-hidden rounded-2xl border border-border bg-card/70 backdrop-blur-lg transition-all hover:border-primary/40"
             >
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-muted">
+              <div className="relative aspect-[34/12] w-full overflow-hidden bg-muted">
                 <Image
                   src={project.image}
                   alt={project.title}
